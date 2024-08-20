@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111; /* Dark background color */
+            color: #fff; /* Light text color */
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Hide overflow for body */
+        }
+
+        .frame {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 20px; /* Width of the fixed frame */
+            background-color: #333; /* Dark background color for the frame */
+            z-index: 1;
+            overflow-y: auto; /* Enable vertical scroll for the frame */
+        }
+
+        .main-content {
+            margin-left: 20px; /* Adjusted to accommodate the frame */
+            margin-right: 80px; /* Adjusted to accommodate the empty space on the right */
+            padding: 10px;
+            z-index: 0;
+            overflow-y: auto; /* Enable vertical scroll for the main content */
+        }
+
+        .filter label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .filter-checkbox {
+            margin-right: 5px;
+        }
+
+        .hotels {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .hotel {
+            width: calc(33.33% - 20px);
+            margin-right: 20px;
+            margin-bottom: 20px;
+            background-color: #444; /* Dark background color for hotels */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .hotel-info {
+            color: #fff; /* Light text color for hotel information */
+            margin-bottom: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Scrollbar style */
+        ::-webkit-scrollbar {
+            width: 10px;
+            background-color: #333; /* Dark background color for scrollbar */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #666; /* Dark color for scrollbar thumb */
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #888; /* Lighter color on hover for scrollbar thumb */
+        }
+    </style>
+</head>
+<body>
+    <div class="frame"></div>
+    <div class="main-content">
+        <!-- Content for the main area -->
+        <div class="filter">
+            <h1>Locality</h1>
+            <h2>Country</h2>
+            <label><input type="text" id="countryInput" value="Country"></label>
+            <br><br>
+
+            <div id="citySelection" style="display: none;">
+                <h2>City</h2>
+                <div id="cityCheckboxes"></div>
+            </div>
+
+            <h2>Price Range</h2>
+            <div id="priceSelection">
+                <div id="priceCheckboxes"></div>
+            </div>
+
+            <h2>Amenities</h2>
+            <div id="amenitiesSelection">
+                <div id="amenitiesCheckboxes"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const usCities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia"];
+        const amenitiesList = ["Free Wi-Fi", "Swimming Pool", "Gym", "Spa", "Restaurant"];
+        
+        function displayCities() {
+            const countryInput = document.getElementById("countryInput");
+            const citySelection = document.getElementById("citySelection");
+            const cityCheckboxes = document.getElementById("cityCheckboxes");
+            
+            if (countryInput.value.toUpperCase() === "USA") {
+                citySelection.style.display = "block";
+                cityCheckboxes.innerHTML = ""; 
+                
+                usCities.forEach(city => {
+                    const checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";
+                    checkbox.value = city;
+                    const label = document.createElement("label");
+                    label.appendChild(checkbox);
+                    label.appendChild(document.createTextNode(city));
+                    cityCheckboxes.appendChild(label);
+                    cityCheckboxes.appendChild(document.createElement("br"));
+                });
+            } else {
+                citySelection.style.display = "none";
+            }
+        }
+
+        function displayPriceRanges() {
+            const priceSelection = document.getElementById("priceSelection");
+            const priceCheckboxes = document.getElementById("priceCheckboxes");
+    
+            const usdRanges = ["0-100", "101-200", "201-300", "301-400", "401-500", "501-600", "601-700", "701-800", "801-900", "901-1000"];
+    
+            priceSelection.style.display = "block";
+            priceCheckboxes.innerHTML = ""; 
+    
+            usdRanges.forEach(range => {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.value = range;
+                const label = document.createElement("label");
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(range + " USD"));
+                priceCheckboxes.appendChild(label);
+                priceCheckboxes.appendChild(document.createElement("br")); 
+
+            });
+        }
+
+        function displayAmenities() {
+            const amenitiesSelection = document.getElementById("amenitiesSelection");
+            const amenitiesCheckboxes = document.getElementById("amenitiesCheckboxes");
+
+            amenitiesSelection.style.display = "block";
+            amenitiesCheckboxes.innerHTML = "";
+
+            amenitiesList.forEach(amenity => {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.value = amenity;
+                const label = document.createElement("label");
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(amenity));
+                amenitiesCheckboxes.appendChild(label);
+                amenitiesCheckboxes.appendChild(document.createElement("br")); 
+            });
+        }
+        
+        document.getElementById("countryInput").addEventListener("input", displayCities);
+        displayPriceRanges();
+        displayAmenities();
+    </script>
+</body>
+</html>

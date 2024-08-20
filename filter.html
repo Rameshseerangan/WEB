@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Recommendation System</title>
+    <style>
+        
+        body {
+            background-color: #222;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            display: flex;
+        }
+
+        .filter {
+            flex: 0 0 20%;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+        }
+
+        input[type="range"] {
+            height: 200%;
+            width: 300%;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .content {
+            flex: 100;
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="filter">
+            <h2>Filter suggestion</h2>
+            <form>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <select id="location">
+                        <option value="usa">USA</option>
+                        <option value="new-york">New York</option>
+                        <option value="los-angeles">Los Angeles</option>
+                        <option value="chicago">Chicago</option>
+                        <option value="houston">Houston</option>
+                        <option value="phoenix">Phoenix</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Price Ranges:</label><br>
+                    <input type="checkbox" id="range1" name="range1" value="1-100">
+                    <label for="range1">1-100 USD</label><br>
+                    <input type="checkbox" id="range2" name="range2" value="101-200">
+                    <label for="range2">101-200 USD</label><br>
+                    <input type="checkbox" id="range3" name="range3" value="201-300">
+                    <label for="range3">201-300 USD</label><br>
+                    <input type="checkbox" id="range4" name="range4" value="301-400">
+                    <label for="range4">301-400 USD</label><br>
+                    <input type="checkbox" id="range5" name="range5" value="401-500">
+                    <label for="range5">401-500 USD</label><br>
+                    <input type="checkbox" id="range5" name="range6" value="501-600">
+                    <label for="range6">501-600 USD</label><br>
+                    <input type="checkbox" id="range7" name="range7" value="601-700">
+                    <label for="range7">601-700 USD</label><br>
+                    <input type="checkbox" id="range8" name="range8" value="701-800">
+                    <label for="range8">701-800 USD</label><br>
+                    <input type="checkbox" id="range9" name="range9" value="801-900">
+                    <label for="range9">801-900 USD</label><br>
+                    <input type="checkbox" id="range10" name="range10" value="901-1000">
+                    <label for="range10">901-1000 USD</label><br>
+                </div>
+                <div class="form-group">
+                    <label for="amenities">Amenities:</label><br>
+                    <input type="text" id="text" name="text" placeholder="Enter Reqirements"><br>
+                </div>
+                <button type="submit">Apply Filters</button>
+            </form>
+        </div>
+        <div class="content">
+            <!-- Main content goes here -->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Recommendation System</title>
+    <style>
+        /* Dark theme styles */
+        body {
+            background-color: #222;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        .menu {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+            animation: slideIn 1s ease-in-out forwards;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 5px;
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .menu a:hover {
+            background-color: #666;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .footer {
+            background-color: #333;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hotel Recommendation System</h1>
+    </div>
+    <div class="menu">
+        <a href="#" style="animation-delay: 0.1s;">Home</a>
+        <a href="registration.html" style="animation-delay: 0.2s;">Register</a> 
+        <a href="login.html" style="animation-delay: 0.3s;">Login</a>
+        <a href="about.html" style="animation-delay: 0.4s;">About</a>
+    </div>
+    <div class="content">
+        <h2>Welcome to our Hotel Recommendation System</h2>
+        <p>Find the perfect hotel for your next stay!</p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Hotel Recommendation System</p>
+    </div>
+</body>
+</html>
